@@ -1,0 +1,64 @@
+---
+import '../styles/global.css';
+
+const {pathname} = Astro.url
+---
+
+<nav class="w-full h-[56px] border border-stroke border- flex items-center px-6">
+    <div>
+        <p class="text-foreground text-lg w-[250px]">miguel-quiroz</p>
+    </div>
+    <div class="flex-1 flex h-full w-full items-center">
+        <a 
+            class:list={[
+                "text-lg border-l border-l-stroke px-10 h-full flex items-center hover:text-heading-foreground hover:border-b-2 hover:border-b-primary",
+                { 
+                    "border-b-2 border-b-primary text-heading-foreground" : pathname === "/",
+                    "text-foreground" : pathname !== "/"  
+                },
+            ]} 
+            href=""
+        >
+            _home
+        </a>
+        <a 
+            class:list={[
+                "text-lg border-l border-l-stroke px-10 h-full flex items-center hover:text-heading-foreground hover:border-b-2 hover:border-b-primary",
+                { 
+                    "border-b-2 border-b-primary text-heading-foreground" : pathname === "/about-me",
+                    "text-foreground" : pathname !== "/about-me"  
+                },
+            ]} 
+            href="/about-me"
+        >
+            _about-me
+        </a>
+        <a 
+            class:list={[
+                "text-lg border-l border-l-stroke border-r border-r-stroke px-10 h-full flex items-center hover:text-heading-foreground hover:border-b-2 hover:border-b-primary",
+                { 
+                    "border-b-2 border-b-primary text-heading-foreground" : pathname === "/projects",
+                    "text-foreground" : pathname !== "/projects"  
+                },
+            ]} 
+            href="/projects"
+        >
+            _projects
+        </a>
+    </div>
+    <div class="h-full">
+        <a 
+            class:list={[
+                "text-lg border-l border-l-stroke px-10 h-full flex items-center hover:text-heading-foreground hover:border-b-2 hover:border-b-primary",
+                { 
+                    "border-b-2 border-b-primary text-heading-foreground" : pathname === "/contact-me",
+                    "text-foreground" : pathname !== "/contact-me"  
+                },
+            ]} 
+            href="/contact-me"
+        >
+            _contact-me
+        </a>
+    </div>
+
+</nav>
