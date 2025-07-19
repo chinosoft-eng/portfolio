@@ -1,4 +1,4 @@
-<div class="glass-card">
+<div class="glass-card" id="snake-game-card">
   <div class="corner top-left">
     <svg
       width="10"
@@ -114,7 +114,7 @@
         </button>
         <button
           class="text-sm text-foreground hover:text-heading-foreground cursor-pointer"
-          id="continue"
+          id="win-continue"
         >
           Continue
         </button>
@@ -254,6 +254,7 @@
       </div>
       <div class="flex justify-end">
         <button
+          id="skip-snake-game"
           class="bg-transparent px-3 py-2 text-heading-foreground border border-heading-foreground rounded-lg"
         >
           Skip
@@ -526,7 +527,9 @@
   const snakeGame = new SnakeGame();
   const startButton = document.getElementById("start-snake-game");
   const winPlayAgainButton = document.getElementById("win-play-again");
+  const winContinueButton = document.getElementById("win-continue");
   const loosePlayAgainButton = document.getElementById("loose-play-again");
+  const skipSnakeGameButton = document.getElementById("skip-snake-game");
 
   const onGameWin = () => {
     const winElement = document.getElementById("win-banner");
@@ -569,7 +572,7 @@
     const winElement = document.getElementById("win-banner");
     winElement?.classList.add("hidden");
 
-    snakeGame.startGame(() => {}, onGameWin);
+    snakeGame.startGame(onGameLoose, onGameWin);
   });
   
   // Listenner for the winner play again button
@@ -579,6 +582,23 @@
 
     snakeGame.startGame(onGameLoose, onGameWin);
   });
+
+  // Hidde the snake hame and show the code snipets carousel
+  const onShowNextContent = () => {
+    const snakeCartContainer = document.getElementById("snake-game-card");
+    snakeCartContainer?.classList.add("hidden");
+
+    const codeSnipetsCarouselContainer = document.getElementById("code-snipets-carousel");
+    codeSnipetsCarouselContainer?.classList.remove("hidden");
+  }
+
+  // Listenner for skip snake game
+  skipSnakeGameButton?.addEventListener("click", onShowNextContent);
+
+  // Listenner for win snake game continue button
+  winContinueButton?.addEventListener("click", onShowNextContent);
+
+
 </script>
 
 <style>
