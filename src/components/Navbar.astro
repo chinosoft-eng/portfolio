@@ -17,7 +17,7 @@ const {pathname} = Astro.url
                     "text-foreground" : pathname !== "/"  
                 },
             ]} 
-            href=""
+            href="/"
         >
             _home
         </a>
@@ -25,11 +25,11 @@ const {pathname} = Astro.url
             class:list={[
                 "text-lg border-l border-l-stroke px-10 h-full flex items-center hover:text-heading-foreground hover:border-b-2 hover:border-b-primary",
                 { 
-                    "border-b-2 border-b-primary text-heading-foreground" : pathname === "/about-me",
-                    "text-foreground" : pathname !== "/about-me"  
+                    "border-b-2 border-b-primary text-heading-foreground" : pathname.includes("/about-me"),
+                    "text-foreground" : !pathname.includes("/about-me")  
                 },
             ]} 
-            href="/about-me"
+            href="/about-me/bio"
         >
             _about-me
         </a>

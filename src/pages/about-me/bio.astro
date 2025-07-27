@@ -1,0 +1,27 @@
+---
+import CommentBlock from "../../components/ui/CommentBlock.astro";
+import AboutMeLayout from "./index.astro";
+
+const bio = `Hi, I'm Jose Miguel Quiroz Benitez, a passionate Software Engineer with over 3 years of hands-on experience in full-stack development.
+ I specialize in building scalable and maintainable web applications using modern technologies such as React, Python, JavaScript, 
+ and C#. My work spans across frontend and backend systems, with a strong focus on clean architecture, system design, and performance optimization.Currently, 
+ I'm a Software Application Developer at Intel, where I contribute to the development of data-driven and 
+ high-performance applications that impact thousands of users daily. I've also worked in fast-paced environments like Ikatech Technology and Aerobit,
+ where I built responsive UIs, integrated third-party APIs, and deployed systems using AWS.Beyond work, I'm an enthusiastic 
+ problem solver and a two-time BBVA Hackathon winner, recognized for creative solutions involving Google Cloud, ATM systems, and digital onboarding.
+ I constantly seek growth through personal projects—ranging from inventory management tools to music streaming platforms—all of which reflect my passion for technology, 
+ innovation, and continuous learning. Whether it’s building intuitive UIs, designing efficient APIs, or solving complex technical challenges, 
+ I enjoy crafting solutions that make a real difference.`
+
+---
+
+<AboutMeLayout sectionName="Bio">
+    <div class="flex h-full flex-1 min-h-0">
+        <div class="border-r border-stroke p-4 flex-1 h-full min-h-0 overflow-y-auto flex">
+           <CommentBlock value={bio} />
+        </div>
+        <div class="flex-1">
+            Hello
+        </div>
+    </div>
+</AboutMeLayout>
