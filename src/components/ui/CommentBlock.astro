@@ -21,7 +21,6 @@ const {value} = Astro.props;
         commentBlock.innerHTML = '';
         const lineMaxWidth = commentBlock.offsetWidth - NUMBER_LINE_WIDTH;
         let content: string = commentBlock.dataset.content ?? "";
-        content = content.replaceAll("\n", " ");
 
         // Create hidden measurer
         const measurer = document.createElement('div');
@@ -47,7 +46,7 @@ const {value} = Astro.props;
         for(let i=0; i < content.length; i++){
             const char = content[i];
 
-            if(char === ' ' || char === ''){
+            if(char === ' ' || char === '' || char === '\n'){
                 currentWord = '';
                 currentWordStart = i;
             }else {
@@ -58,7 +57,7 @@ const {value} = Astro.props;
             const rects = measurer.getClientRects();
             currentWidth = rects.length ? rects[rects.length - 1].width : currentWidth;
 
-            if (currentWidth !== null && (currentWidth ?? 0) > lineMaxWidth) {
+            if (char === '\n' || (currentWidth !== null && (currentWidth ?? 0) > lineMaxWidth)) {
                 lines.push(content.slice(currentLineStart, currentWordStart));
                 currentLineStart = currentWordStart + 1;
                 tempLine = currentWord;
@@ -68,7 +67,9 @@ const {value} = Astro.props;
                
         }
             
-        if (tempLine) lines.push(tempLine);        
+        if (tempLine) 
+            lines.push(tempLine);      
+
         commentBlock.removeChild(measurer);
         
         // Render the comment block
