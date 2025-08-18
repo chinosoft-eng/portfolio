@@ -1,6 +1,26 @@
 ---
+import Tab from "../../components/about_me/Tab.astro";
 import CommentBlock from "../../components/ui/CommentBlock.astro";
 import AboutMeLayout from "./index.astro";
+import StackCard from "../../components/about_me/StackCard.astro";
+import IntelLogo from "../../components/ui/IntelLogo.astro";
+import AngularIcon from "../../components/ui/icons/AngularIcon.astro";
+import AwsIcon from "../../components/ui/icons/AwsIcon.astro";
+import AzureIcon from "../../components/ui/icons/AzureIcon.astro";
+import CSharpIcon from "../../components/ui/icons/CSharpIcon.astro";
+import DockerIcon from "../../components/ui/icons/DockerIcon.astro";
+import FlaskIcon from "../../components/ui/icons/FlaskIcon.astro";
+import GitIcon from "../../components/ui/icons/GitIcon.astro";
+import MongoIcon from "../../components/ui/icons/MongoIcon.astro";
+import NetCoreIcon from "../../components/ui/icons/NetCoreIcon.astro";
+import PostgresqlIcon from "../../components/ui/icons/PostgresqlIcon.astro";
+import PythonIcon from "../../components/ui/icons/PythonIcon.astro";
+import ReactIcon from "../../components/ui/icons/ReactIcon.astro";
+import RedisIcon from "../../components/ui/icons/RedisIcon.astro";
+import SqlServerIcon from "../../components/ui/icons/SqlServerIcon.astro";
+import TypeScriptIcon from "../../components/ui/icons/TypeScriptIcon.astro";
+import UmlIcon from "../../components/ui/icons/UmlIcon.astro";
+import IkatechLogo from "../../components/ui/IkatechLogo.astro";
 
 const bio = `About me
 
@@ -10,17 +30,242 @@ Currently, I'm a Software Application Developer at Intel, where I contribute to 
 
 Beyond work, I'm an enthusiastic problem solver and a two-time BBVA Hackathon winner, recognized for creative solutions involving Google Cloud, ATM systems, and digital onboarding. I constantly seek growth through personal projects—ranging from inventory management tools to music streaming platforms—all of which reflect my passion for technology, innovation, and continuous learning. 
 
-Whether it’s building intuitive UIs, designing efficient APIs, or solving complex technical challenges, I enjoy crafting solutions that make a real difference.`
-
+Whether it’s building intuitive UIs, designing efficient APIs, or solving complex technical challenges, I enjoy crafting solutions that make a real difference.`;
 ---
 
-<AboutMeLayout sectionName="Bio">
-    <div class="flex h-full flex-1 min-h-0">
-        <div class="border-r border-stroke p-4 flex-1 h-full min-h-0 overflow-y-auto flex">
-           <CommentBlock value={bio} />
-        </div>
-        <div class="flex-1">
-            Hello
-        </div>
+<AboutMeLayout>
+    <div class="flex h-full flex-1 min-h-0 w-full">
+        <Tab sectionName="Bio">
+            <div class="p-4 flex-1 h-full min-h-0 overflow-y-auto flex">
+                <CommentBlock value={bio} />
+            </div>
+        </Tab>
+        <Tab sectionName="My stack">
+            <div class="p-4 flex flex-col gap-4">
+                <div class="flex flex-col gap-2">
+                    <h2 class="text-xl text-heading-foreground font-semibold">
+                        My stack
+                    </h2>
+                    <p class="text-foreground">
+                        The list of my most used technologies, tools and
+                        frameworks as a software engeenier.
+                    </p>
+                </div>
+                <StackCard>
+                    <div slot="stack-header" class="flex items-center gap-2">
+                        <p class="text-xl">My stack @</p><IntelLogo className="w-12" />
+                    </div>
+                    <div class="flex gap-4">
+                        <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <ReactIcon className="w-10" />
+                            <p class="text-center text-xs text-foreground">
+                                React
+                            </p>
+                        </div>
+                        <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <TypeScriptIcon className="w-10" />
+                            <p class="text-center text-xs text-foreground">
+                                TypeScript
+                            </p>
+                        </div>
+                        <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <AngularIcon className="w-10" />
+                            <p class="text-center text-xs text-foreground">
+                                Angular
+                            </p>
+                        </div>
+                        <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <CSharpIcon className="w-10" />
+                            <p class="text-center text-xs text-foreground">
+                                C#
+                            </p>
+                        </div>
+                        <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <NetCoreIcon className="w-10" />
+                            <p class="text-center text-xs text-foreground">
+                                .Net Core
+                            </p>
+                        </div>
+                        <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <SqlServerIcon className="w-10" />
+                            <p class="text-center text-xs text-foreground">
+                                SQL Server
+                            </p>
+                        </div>
+                    </div>
+                </StackCard>
+                <StackCard>
+                    <div slot="stack-header" class="flex items-center gap-2">
+                        <p class="text-xl">My stack @</p><IkatechLogo className="w-25" />
+                    </div>
+                    <div class="flex gap-4">
+                        <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <ReactIcon className="w-10" />
+                            <p class="text-center text-xs text-foreground">
+                                React
+                            </p>
+                        </div>
+                        <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <TypeScriptIcon className="w-10" />
+                            <p class="text-center text-xs text-foreground">
+                                TypeScript
+                            </p>
+                        </div>
+                        <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <PythonIcon className="w-10" />
+                            <p class="text-center text-xs text-foreground">
+                                Python
+                            </p>
+                        </div>
+                        <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <FlaskIcon className="w-10 text-white fill-white" />
+                            <p class="text-center text-xs text-foreground">
+                                Flask
+                            </p>
+                        </div>
+                         <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <PostgresqlIcon className="w-10 text-white fill-white" />
+                            <p class="text-center text-xs text-foreground">
+                                PostgreSQL
+                            </p>
+                        </div>
+                    </div>
+                </StackCard>
+                <StackCard>
+                    <div slot="stack-header" class="flex items-center gap-2">
+                        <p class="text-xl">My personal stack
+                    </div>
+                    <div class="flex gap-4">
+                        <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <ReactIcon className="w-10" />
+                            <p class="text-center text-xs text-foreground">
+                                React
+                            </p>
+                        </div>
+                        <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <TypeScriptIcon className="w-10" />
+                            <p class="text-center text-xs text-foreground">
+                                TypeScript
+                            </p>
+                        </div>
+                        <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <PythonIcon className="w-10" />
+                            <p class="text-center text-xs text-foreground">
+                                Python
+                            </p>
+                        </div>
+                        <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <FlaskIcon className="w-10 text-white fill-white" />
+                            <p class="text-center text-xs text-foreground">
+                                Flask
+                            </p>
+                        </div>
+                         <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <PostgresqlIcon className="w-10" />
+                            <p class="text-center text-xs text-foreground">
+                                PostgreSQL
+                            </p>
+                        </div>
+                         <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <MongoIcon className="w-10" />
+                            <p class="text-center text-xs text-foreground">
+                                MongoDB
+                            </p>
+                        </div>
+                    </div>
+                </StackCard>
+                 <StackCard>
+                    <div slot="stack-header" class="flex items-center gap-2">
+                        <p class="text-xl">Tools and technologies
+                    </div>
+                    <div class="flex gap-4">
+                        <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <GitIcon className="w-10" />
+                            <p class="text-center text-xs text-foreground">
+                                Git
+                            </p>
+                        </div>
+                        <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <DockerIcon className="w-10" />
+                            <p class="text-center text-xs text-foreground">
+                                Docker
+                            </p>
+                        </div>
+                        <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <RedisIcon className="w-10" />
+                            <p class="text-center text-xs text-foreground">
+                                Redis
+                            </p>
+                        </div>
+                        <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <UmlIcon className="w-10 text-white fill-white" />
+                            <p class="text-center text-xs text-foreground">
+                                UML
+                            </p>
+                        </div>
+                         <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <AwsIcon className="w-10" />
+                            <p class="text-center text-xs text-foreground">
+                                AWS
+                            </p>
+                        </div>
+                         <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <AzureIcon className="w-10" />
+                            <p class="text-center text-xs text-foreground">
+                                Azure
+                            </p>
+                        </div>
+                    </div>
+                </StackCard>
+                
+            </div>
+
+        </Tab>
     </div>
 </AboutMeLayout>
