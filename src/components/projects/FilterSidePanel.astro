@@ -1,0 +1,34 @@
+---
+import CSharpIcon from "../ui/icons/CSharpIcon.astro";
+import DjangoIcon from "../ui/icons/DjangoIcon.astro";
+import DropdownIcon from "../ui/icons/DropdownIcon.astro";
+import ExpressIcon from "../ui/icons/ExpressIcon.astro";
+import FlaskIcon from "../ui/icons/FlaskIcon.astro";
+import FolderIcon from "../ui/icons/FolderIcon.astro";
+import JavaScriptIcon from "../ui/icons/JavaScriptIcon.astro";
+import NodeJsIcon from "../ui/icons/NodeJsIcon.astro";
+import PythonPlainIcon from "../ui/icons/PythonPlainIcon.astro";
+import ReactIcon from "../ui/icons/ReactIcon.astro";
+import TypeScriptIcon from "../ui/icons/TypeScriptIcon.astro";
+import FilterCheckBox from "./FilterCheckBox.astro";
+
+
+---
+<div class="w-[250px] border-x border-stroke flex">
+    <ul class="w-full">
+        <li class="w-full">
+            <p class="px-4 py-2 text-slate/50 border-b border-stroke flex gap-2 items-center hover:text-heading-foreground"> <DropdownIcon /> Projecs</p>
+            <div class="flex flex-col gap-4 px-4 py-2">
+                <FilterCheckBox Icon={ReactIcon} label="React" id="react" />
+                <FilterCheckBox Icon={TypeScriptIcon} label="TypeScript" id="typescript" />
+                <FilterCheckBox Icon={JavaScriptIcon} label="JavaScript" id="javascript" />
+                <FilterCheckBox Icon={ExpressIcon} label="Express" id="express" />
+                <FilterCheckBox Icon={NodeJsIcon} label="Node JS" id="node-js" />
+                <FilterCheckBox Icon={PythonPlainIcon} label="Python" id="python" />
+                <FilterCheckBox Icon={FlaskIcon} label="Flask" id="flask" />
+                <FilterCheckBox Icon={DjangoIcon} label="Django" id="django" />
+                <FilterCheckBox Icon={CSharpIcon} label="C#" id="c-sharp" />
+            </div>
+        </li>
+    </ul>
+</div>
