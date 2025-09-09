@@ -1,16 +1,5 @@
 ---
-import type { JSX } from 'astro/jsx-runtime';
-import { Technologies, TECHNOLOGIES_NAME_MAPS } from '../../models/Technologies';
-import CSharpIcon from '../ui/icons/CSharpIcon.astro';
-import ElectronIcon from '../ui/icons/ElectronIcon.astro';
-import FlaskIcon from '../ui/icons/FlaskIcon.astro';
-import JavaScriptIcon from '../ui/icons/JavaScriptIcon.astro';
-import ReactIcon from '../ui/icons/ReactIcon.astro';
-import TypeScriptIcon from '../ui/icons/TypeScriptIcon.astro';
-import PythonPlainIcon from '../ui/icons/PythonPlainIcon.astro';
-import ExpressIcon from '../ui/icons/ExpressIcon.astro';
-import NodeJsIcon from '../ui/icons/NodeJsIcon.astro';
-import DjangoIcon from '../ui/icons/DjangoIcon.astro';
+import { Technologies, TECHNOLOGIES_ICON_MAPS, TECHNOLOGIES_NAME_MAPS } from '../../../models/Technologies';
 
 
 interface Props {
@@ -26,19 +15,7 @@ interface Props {
 
 const { number, name, idenfiticator, image, technologies, description } = Astro.props;
 
-// Map of technologies to their respective icon components
-const TECHNOLOGIES_ICON_MAPS= {
-    [Technologies.react]: ReactIcon,
-    [Technologies.javascript]: JavaScriptIcon,
-    [Technologies.typescript]: TypeScriptIcon,
-    [Technologies.express]: ExpressIcon,
-    [Technologies.nodejs]: NodeJsIcon,
-    [Technologies.electron]: ElectronIcon,
-    [Technologies.django]: DjangoIcon,
-    [Technologies.flask]: FlaskIcon,
-    [Technologies.python]: PythonPlainIcon,
-    [Technologies.cSharp]: CSharpIcon,
-}
+
 
 // Constast color for fill of the icons
 const TECHNOLOGIES_ICON_CLASS_MAPS: Record<Technologies, string> = {
@@ -52,6 +29,9 @@ const TECHNOLOGIES_ICON_CLASS_MAPS: Record<Technologies, string> = {
     [Technologies.flask]: "fill-white",
     [Technologies.python]: "fill-white",
     [Technologies.cSharp]: "fill-white",
+    [Technologies.mongodb]: "",
+    [Technologies.docker]: "",
+    [Technologies.postgresql]: ""
 }
 
 // Constast color for bg of the icons
@@ -66,6 +46,9 @@ const TECHNOLOGIES_COLOR_MAPS: Record<Technologies, any> = {
     [Technologies.flask]: "#9F2D00",
     [Technologies.python]: "#0B4F4A",
     [Technologies.cSharp]: "#3C0366",
+    [Technologies.mongodb]: "#3c3c3c",
+    [Technologies.docker]: "#3c3c3c",
+    [Technologies.postgresql]: ""
 }
 
 ---
@@ -97,7 +80,7 @@ const TECHNOLOGIES_COLOR_MAPS: Record<Technologies, any> = {
             <p class="text-foreground text-lg">{description}</p>
         </div>
         <div class="px-6 pb-6">
-            <button class="bg-slate-600 text-heading-foreground p-2 rounded text-sm">view-project</button>
+            <a href={`/projects/${number}`} class="bg-slate-600 text-heading-foreground p-2 rounded text-sm cursor-pointer hover:bg-primary hover:text-[#020618]">view-project</a>
         </div>
     </div>
 </div>
