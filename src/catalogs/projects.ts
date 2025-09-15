@@ -28,6 +28,13 @@ import LaMontanaScreenShot10 from "../assets/projects/screenshots/laMontana/la-m
 
 // Assets Management Screen Shots
 import AssetManagementScreenShot1 from "../assets/projects/screenshots/assetManagement/assets-management-screen-1.png";
+import AssetManagementScreenShot2 from "../assets/projects/screenshots/assetManagement/assets-management-screen-2.png";
+import AssetManagementScreenShot3 from "../assets/projects/screenshots/assetManagement/assets-management-screen-3.png";
+import AssetManagementScreenShot4 from "../assets/projects/screenshots/assetManagement/assets-management-screen-4.png";
+import AssetManagementScreenShot5 from "../assets/projects/screenshots/assetManagement/assets-management-screen-5.png";
+import AssetManagementScreenShot6 from "../assets/projects/screenshots/assetManagement/assets-management-screen-6.png";
+import AssetManagementScreenShot7 from "../assets/projects/screenshots/assetManagement/assets-management-screen-7.png";
+import AssetManagementScreenShot8 from "../assets/projects/screenshots/assetManagement/assets-management-screen-8.png";
 
 // Retali Screen Shots
 import RetaliScreenShot1 from "../assets/projects/screenshots/retali/retali-screen-1.png";
@@ -91,6 +98,13 @@ export const projects: Project[] = [
         image: AssetsManagementSystem,
         screenShots: [
             {image: AssetManagementScreenShot1 , alt: "Screenshot 1"}, 
+            {image: AssetManagementScreenShot2 , alt: "Screenshot 2"}, 
+            {image: AssetManagementScreenShot3 , alt: "Screenshot 3"}, 
+            {image: AssetManagementScreenShot4 , alt: "Screenshot 4"}, 
+            {image: AssetManagementScreenShot5 , alt: "Screenshot 5"}, 
+            {image: AssetManagementScreenShot6 , alt: "Screenshot 6"}, 
+            {image: AssetManagementScreenShot7 , alt: "Screenshot 7"}, 
+            {image: AssetManagementScreenShot8 , alt: "Screenshot 8"}, 
         ],
         linkToProject: "https://la-montania-web.vercel.app/#/home",
         linkToRepos: [
