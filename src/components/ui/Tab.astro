@@ -6,14 +6,14 @@ interface Props {
 const { sectionName } = Astro.props;
 ---
 
-<div class="flex flex-1 w-full flex-col border-x h-full border-stroke">
+<div class="flex lg:flex-1 w-full flex-col border-x h-fit lg:h-full border-stroke">
     <div
-        class="px-4 py-2 border-r border-stroke w-fit flex gap-16 items-center cursor-default"
+        class="hidden lg:flex px-4 py-2 border-r border-stroke w-fit gap-16 items-center cursor-default"
     >
         <p class="text-foreground">{sectionName}</p>
         <p class="text-foreground text-sm">X</p>
     </div>
-    <div class="w-full h-full flex-1 border-t border-stroke min-h-0 overflow-auto">
+    <div class="w-full h-fit lg:h-full lg:flex-1 border-t border-stroke min-h-0 lg:overflow-auto">
         <slot />
     </div>
 </div>

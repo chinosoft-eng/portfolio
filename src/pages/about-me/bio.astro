@@ -34,9 +34,9 @@ Whether it’s building intuitive UIs, designing efficient APIs, or solving comp
 ---
 
 <AboutMeLayout>
-    <div class="flex h-full flex-1 min-h-0 w-full">
+    <div class="flex flex-col lg:flex-row h-full flex-1 min-h-0 w-full overflow-y-auto">
         <Tab sectionName="Bio">
-            <div class="p-4 flex-1 h-full min-h-0 overflow-y-auto flex">
+            <div class="p-4 flex-1 h-fit md:h-full min-h-0 md:overflow-y-auto flex">
                 <CommentBlock value={bio} />
             </div>
         </Tab>
@@ -55,7 +55,7 @@ Whether it’s building intuitive UIs, designing efficient APIs, or solving comp
                     <div slot="stack-header" class="flex items-center gap-2">
                         <p class="text-xl">My stack @</p><IntelLogo className="w-12" />
                     </div>
-                    <div class="flex gap-4">
+                    <div class="flex gap-4 flex-wrap justify-center items-center">
                         <div
                             class="flex flex-col gap-1 justify-center items-center"
                         >
@@ -110,7 +110,7 @@ Whether it’s building intuitive UIs, designing efficient APIs, or solving comp
                     <div slot="stack-header" class="flex items-center gap-2">
                         <p class="text-xl">My stack @</p><IkatechLogo className="w-25" />
                     </div>
-                    <div class="flex gap-4">
+                    <div class="flex gap-4 flex-wrap justify-center items-center">
                         <div
                             class="flex flex-col gap-1 justify-center items-center"
                         >
@@ -157,7 +157,7 @@ Whether it’s building intuitive UIs, designing efficient APIs, or solving comp
                     <div slot="stack-header" class="flex items-center gap-2">
                         <p class="text-xl">My personal stack
                     </div>
-                    <div class="flex gap-4">
+                    <div class="flex gap-4 flex-wrap justify-center items-center">
                         <div
                             class="flex flex-col gap-1 justify-center items-center"
                         >
@@ -212,7 +212,7 @@ Whether it’s building intuitive UIs, designing efficient APIs, or solving comp
                     <div slot="stack-header" class="flex items-center gap-2">
                         <p class="text-xl">Tools and technologies
                     </div>
-                    <div class="flex gap-4">
+                    <div class="flex gap-4 flex-wrap justify-center items-center">
                         <div
                             class="flex flex-col gap-1 justify-center items-center"
                         >
