@@ -1,4 +1,4 @@
-<div class="glass-card" id="snake-game-card">
+<div class="glass-card hidden lg:block" id="snake-game-card">
   <div class="corner top-left">
     <svg
       width="10"
@@ -587,6 +587,7 @@
   const onShowNextContent = () => {
     const snakeCartContainer = document.getElementById("snake-game-card");
     snakeCartContainer?.classList.add("hidden");
+    snakeCartContainer?.classList.add("lg:hidden");
 
     const codeSnipetsCarouselContainer = document.getElementById("code-snipets-carousel");
     codeSnipetsCarouselContainer?.classList.remove("hidden");
@@ -605,6 +606,7 @@
   .glass-card {
     position: relative;
     width: 500px;
+    min-width: 500px;
     height: 470px;
     border-radius: 8px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);

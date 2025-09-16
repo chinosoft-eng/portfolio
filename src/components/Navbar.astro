@@ -8,7 +8,7 @@ const {pathname} = Astro.url
     <div>
         <p class="text-foreground text-lg w-[225px]">miguel-quiroz</p>
     </div>
-    <div class="flex-1 flex h-full w-full items-center">
+    <div class="hidden lg:flex flex-1 h-full w-full items-center">
         <a 
             class:list={[
                 "text-lg border-l border-l-stroke px-10 h-full flex items-center hover:text-heading-foreground hover:border-b-2 hover:border-b-primary",
@@ -46,7 +46,7 @@ const {pathname} = Astro.url
             _projects
         </a>
     </div>
-    <div class="h-full">
+    <div class="hidden lg:block h-full">
         <a 
             class:list={[
                 "text-lg border-l border-l-stroke px-10 h-full flex items-center hover:text-heading-foreground hover:border-b-2 hover:border-b-primary",

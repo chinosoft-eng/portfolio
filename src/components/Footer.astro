@@ -2,7 +2,7 @@
 import GithubIcon from "./ui/icons/GithubIcon.astro"
 ---
 
-<footer class="h-[56px] w-full border border-stroke flex justify-between">
+<footer class="h-[56px] w-full border border-stroke flex md:justify-between">
     <div class="flex h-full border-r items-center border-stroke">
         <div class="h-full border-r border-r-stroke px-6 flex items-center" >
             <p class="text-foreground text-lg">find me in:</p>
@@ -13,9 +13,9 @@ import GithubIcon from "./ui/icons/GithubIcon.astro"
             </svg>
         </a>
     </div>
-    <div class="border-l border-stroke">
-        <a class="w-full h-full flex items-center hover:border-b-primary hover:border-b-2 text-foreground fill-foreground hover:text-heading-foreground hover:fill-heading-foreground gap-2 px-6" href="">
-            @chinosoft 
+    <div class="border-x border-stroke">
+        <a class="w-full h-full flex items-center hover:border-b-primary hover:border-b-2 text-foreground fill-foreground hover:text-heading-foreground hover:fill-heading-foreground gap-2 px-2 md:px-6" href="">
+            <span class="hidden md:block">@chinosoft</span>
             <GithubIcon /> 
         </a>
     </div>
