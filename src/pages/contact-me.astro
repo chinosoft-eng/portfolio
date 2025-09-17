@@ -4,11 +4,12 @@ import AboutMeLayout from "../pages/about-me/index.astro";
 ---
 
 <AboutMeLayout>
-    <div class="h-full flex ">
+    <div class="h-full flex overflow-y-auto">
         <Tab sectionName="Contact Form">
-            <div class="h-full flex justify-center">
+            <div class="h-full flex flex-col justify-center items-center gap-10 flex-1">
+                <h1 class="text-2xl text-center font-bold text-heading-foreground w-full mt-4" >Contact form</h1>
                 <form
-                    class="mt-20 w-[375px] flex flex-col gap-4"
+                    class="min-w-[300px] w-full max-w-[375px] flex flex-col gap-4 p-4 md:p-0"
                     id="message-form"
                 >
                     <div class="flex flex-col gap-1">
@@ -55,22 +56,25 @@ import AboutMeLayout from "../pages/about-me/index.astro";
                 </form>
             </div>
         </Tab>
-        <Tab sectionName="Message Body">
-            <div class="p-4">
-                <p><span class="mr-4 text-foreground">1</span> <span class="text-purple-400">const</span> <span class="text-indigo-500">button</span> <span class="text-purple-400">=</span> <span class="text-indigo-500">document.querySelector</span><span class="text-foreground">(</span><span class="text-orange-300">"#sendButton"</span><span class="text-foreground">)</span></p>
-                <p><span class="mr-4 text-foreground">2</span></p>
-                <p><span class="mr-4 text-foreground">3</span> <span class="text-purple-400">const</span> <span class="text-indigo-500">message</span> <span class="text-purple-400">=</span> <span class="text-foreground">&lbrace;</span> </p>
-                <p><span class="mr-4 text-foreground">4</span> &nbsp;&nbsp; <span class="text-orange-300">"name"</span><span class="text-foreground">:</span> <span class="text-orange-300">"<span id="name-content"></span>"</span></p>
-                <p><span class="mr-4 text-foreground">5</span> &nbsp;&nbsp; <span class="text-orange-300">"email"</span><span class="text-foreground">:</span> <span class="text-orange-300">"<span id="email-content"></span>"</span></p>
-                <p><span class="mr-4 text-foreground">6</span> &nbsp;&nbsp; <span class="text-orange-300">"message"</span><span class="text-foreground">:</span> <span class="text-orange-300">"<span id="message-content"></span>"</span></p>
-                <p><span class="mr-4 text-foreground">7</span> <span class="text-foreground" >&rbrace;</span></p>
-                <p><span class="mr-4 text-foreground">8</span></p>
-                <p><span class="mr-4 text-foreground">9</span></p>
-                <p><span class="mr-4 text-foreground">10</span> <span class="text-indigo-500">button.addEventListenner</span><span class="text-foreground">(</span><span class="text-orange-300">"click"</span><span class="text-foreground">,</span> &nbsp;<span class="text-foreground">()</span> &nbsp;<span class="text-purple-400">=&gt;</span> &nbsp;<span class="text-foreground">&lbrace;</span></p>
-                <p><span class="mr-4 text-foreground">11</span> &nbsp;&nbsp; <span class="text-indigo-500">form.send</span><span class="text-foreground">(</span><span class="text-indigo-500">message</span><span class="text-foreground">)</span></p>
-                <p><span class="mr-4 text-foreground">12</span> <span class="text-foreground">&rbrace;</span></p>
-            </div>
-        </Tab>
+        <div class="hidden w-2/5 lg:block xl:w-fit">
+            <Tab sectionName="Message Body">
+                <div class="p-4">
+                    <p><span class="mr-4 text-foreground">1</span> <span class="text-purple-400">const</span> <span class="text-indigo-500">button</span> <span class="text-purple-400">=</span> <span class="text-indigo-500">document.querySelector</span><span class="text-foreground">(</span><span class="text-orange-300">"#sendButton"</span><span class="text-foreground">)</span></p>
+                    <p><span class="mr-4 text-foreground">2</span></p>
+                    <p><span class="mr-4 text-foreground">3</span> <span class="text-purple-400">const</span> <span class="text-indigo-500">message</span> <span class="text-purple-400">=</span> <span class="text-foreground">&lbrace;</span> </p>
+                    <p><span class="mr-4 text-foreground">4</span> &nbsp;&nbsp; <span class="text-orange-300">"name"</span><span class="text-foreground">:</span> <span class="text-orange-300">"<span id="name-content"></span>"</span></p>
+                    <p><span class="mr-4 text-foreground">5</span> &nbsp;&nbsp; <span class="text-orange-300">"email"</span><span class="text-foreground">:</span> <span class="text-orange-300">"<span id="email-content"></span>"</span></p>
+                    <p><span class="mr-4 text-foreground">6</span> &nbsp;&nbsp; <span class="text-orange-300">"message"</span><span class="text-foreground">:</span> <span class="text-orange-300">"<span id="message-content"></span>"</span></p>
+                    <p><span class="mr-4 text-foreground">7</span> <span class="text-foreground" >&rbrace;</span></p>
+                    <p><span class="mr-4 text-foreground">8</span></p>
+                    <p><span class="mr-4 text-foreground">9</span></p>
+                    <p><span class="mr-4 text-foreground">10</span> <span class="text-indigo-500">button.addEventListenner</span><span class="text-foreground">(</span><span class="text-orange-300">"click"</span><span class="text-foreground">,</span> &nbsp;<span class="text-foreground">()</span> &nbsp;<span class="text-purple-400">=&gt;</span> &nbsp;<span class="text-foreground">&lbrace;</span></p>
+                    <p><span class="mr-4 text-foreground">11</span> &nbsp;&nbsp; <span class="text-indigo-500">form.send</span><span class="text-foreground">(</span><span class="text-indigo-500">message</span><span class="text-foreground">)</span></p>
+                    <p><span class="mr-4 text-foreground">12</span> <span class="text-foreground">&rbrace;</span></p>
+                </div>
+            </Tab>
+        </div>
+        
     </div>
 </AboutMeLayout>
 
