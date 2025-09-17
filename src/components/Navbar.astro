@@ -1,10 +1,12 @@
 ---
 import '../styles/global.css';
+import CloseIcon from './ui/icons/CloseIcon.astro';
+import MenuIcon from './ui/icons/MenuIcon.astro';
 
 const {pathname} = Astro.url
 ---
 
-<nav class="w-full h-[56px] border border-stroke border- flex items-center px-6">
+<nav class="relative w-full h-[56px] border border-stroke flex items-center justify-between lg:justify-start px-6">
     <div>
         <p class="text-foreground text-lg w-[225px]">miguel-quiroz</p>
     </div>
@@ -46,6 +48,14 @@ const {pathname} = Astro.url
             _projects
         </a>
     </div>
+    <div class="border-stroke border-l h-full pl-4 pr-0 flex justify-center items-center overflow-visible lg:hidden">
+        <button id="open-navbar">
+            <MenuIcon className='w-8 fill-foreground' />
+        </button>
+        <button id="close-navbar" class="hidden">
+            <CloseIcon className='w-8 fill-foreground' />
+        </button>
+    </div>
     <div class="hidden lg:block h-full">
         <a 
             class:list={[
@@ -55,7 +65,7 @@ const {pathname} = Astro.url
                     "text-foreground" : pathname !== "/contact-me"  
                 },
             ]} 
-            href="/contact-me"
+            href="/about-me/contact"
         >
             _contact-me
         </a>
