@@ -8,11 +8,11 @@ import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout>
-    <div class="w-full h-full flex bg-background">
+    <div class="w-full h-full flex bg-background overflow-y-auto">
         <FilterSidePanel />
         <Tab sectionName="My projects">
-            <div class="w-full h-full flex-1 flex p-8">
-                <div class="flex flex-wrap gap-4">
+            <div class="w-full h-full flex-1 flex p-4 md:p-8">
+                <div class="flex h-full flex-wrap gap-4 justify-center">
                     {
                         projects.map(project => (
                             <ProjectCard {...project} />

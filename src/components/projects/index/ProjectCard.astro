@@ -1,17 +1,9 @@
 ---
+import type { Project } from '../../../models/Project';
 import { Technologies, TECHNOLOGIES_ICON_MAPS, TECHNOLOGIES_NAME_MAPS } from '../../../models/Technologies';
 
 
-interface Props {
-    number: number;
-    idenfiticator: string;
-    name: string;
-    technologies: Technologies[];
-    image: ImageMetadata;
-    description: string;
-    linkToProject: string;
-    linkToRepo: string;
-}
+interface Props extends Project { }
 
 const { number, name, idenfiticator, image, technologies, description } = Astro.props;
 
@@ -54,7 +46,7 @@ const TECHNOLOGIES_COLOR_MAPS: Record<Technologies, any> = {
 ---
 
 
-<div class="max-w-[500px] w-[500px] min-w-[500px] transition-all duration-300 ease-in-out opacity-100 scale-100" id={`project-card-${number}`}>
+<div class="w-[325px] md:max-w-[500px] md:w-[500px] md:min-w-[500px] transition-all duration-300 ease-in-out opacity-100 scale-100" id={`project-card-${number}`}>
     <h3 class="ml-1 font-semibold text-indigo-500">Project {number} <span class="font-light text-foreground">// {idenfiticator}</span></h3>
     <div class="min-w-0 bg-slate-950 rounded-lg mt-2 h-[400px] flex flex-col justify-between">
         <div class="relative min-w-0 bg-slate-600 rounded-t-lg">
@@ -77,7 +69,7 @@ const TECHNOLOGIES_COLOR_MAPS: Record<Technologies, any> = {
             <img src={image.src} class="rounded-t-lg h-[145px] object-cover w-full"  alt={`Cover image for ${name} project`} />
         </div>
         <div class="p-6">
-            <p class="text-foreground text-lg">{description}</p>
+            <p class="text-foreground text-md md:text-lg">{description}</p>
         </div>
         <div class="px-6 pb-6">
             <a href={`/projects/${number}`} class="bg-slate-600 text-heading-foreground p-2 rounded text-sm cursor-pointer hover:bg-primary hover:text-[#020618]">view-project</a>
