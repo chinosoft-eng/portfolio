@@ -1,0 +1,36 @@
+---
+import EmailIcon from "../../components/ui/icons/EmailIcon.astro";
+import PhoneIcon from "../../components/ui/icons/PhoneIcon.astro";
+import WhatsappIcon from "../../components/ui/icons/WhatsappIcon.astro";
+import Tab from "../../components/ui/Tab.astro";
+import AboutMeLayout from "./index.astro";
+
+---
+
+<AboutMeLayout>
+    <div class="flex h-full flex-1 min-h-0 w-full overflow-y-auto">
+        <Tab sectionName="Contact me">
+            <div class="flex flex-col gap-2 p-4">
+                <h2 class="text-xl text-heading-foreground font-semibold">
+                    Contact me
+                </h2>
+                <p class="text-foreground">
+                    You can reach me through the following channels
+                </p>
+            </div>
+            <div class="flex flex-col gap-4 p-4">
+                <div class="bg-slate-800 w-full p-2 rounded-lg">
+                    <div>
+                        <a class="flex gap-4 items-center min-w-0" href="mailto:miguel.quiroz.benitez@gmail.com?subject=Interest%20on%20your%20profile&body=Hi%20Miguel%20I%20want%20to%20talk.">
+                           <EmailIcon className="w-11 fill-foreground" />
+                            <div>
+                                <h2 class="text-heading-foreground font-semibold text-sm md:text-2xl">miguel.quiroz.benitez@gmail.com</h2>
+                                <p class="text-foreground">Email</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </Tab>
+    </div>
+</AboutMeLayout>

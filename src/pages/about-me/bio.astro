@@ -1,0 +1,97 @@
+---
+import CommentBlock from "../../components/ui/CommentBlock.astro";
+import AboutMeLayout from "./index.astro";
+import StackCard from "../../components/about_me/StackCard.astro";
+import IntelLogo from "../../components/ui/logos/IntelLogo.astro";
+
+import IkatechLogo from "../../components/ui/logos/IkatechLogo.astro";
+import Tab from "../../components/ui/Tab.astro";
+import {Technologies} from "../../models/Technologies";
+
+const bio = `About me
+
+Hi, I'm Jose Miguel Quiroz Benitez, a passionate Software Engineer with over 3 years of hands-on experience in full-stack development. I specialize in building scalable and maintainable web applications using modern technologies such as React, Python, JavaScript, and C#. My work spans across frontend and backend systems, with a strong focus on clean architecture, system design, and performance optimization.
+
+Currently, I'm a Software Application Developer at Intel, where I contribute to the development of data-driven and high-performance applications that impact thousands of users daily. I've also worked in fast-paced environments like Ikatech Technology and Aerobit, where I built responsive UIs, integrated third-party APIs, and deployed systems using AWS.
+
+Beyond work, I'm an enthusiastic problem solver and a two-time BBVA Hackathon winner, recognized for creative solutions involving Google Cloud, ATM systems, and digital onboarding. I constantly seek growth through personal projects—ranging from inventory management tools to music streaming platforms—all of which reflect my passion for technology, innovation, and continuous learning. 
+
+Whether it’s building intuitive UIs, designing efficient APIs, or solving complex technical challenges, I enjoy crafting solutions that make a real difference.`;
+---
+
+<AboutMeLayout>
+    <div class="flex flex-col lg:flex-row h-full flex-1 min-h-0 w-full overflow-y-auto">
+        <Tab sectionName="Bio">
+            <div class="p-4 flex-1 h-fit md:h-full min-h-0 md:overflow-y-auto flex">
+                <CommentBlock value={bio} />
+            </div>
+        </Tab>
+        <Tab sectionName="My stack">
+            <div class="p-4 flex flex-col gap-4">
+                <div class="flex flex-col gap-2">
+                    <h2 class="text-xl text-heading-foreground font-semibold">
+                        My stack
+                    </h2>
+                    <p class="text-foreground">
+                        The list of my most used technologies, tools and
+                        frameworks as a software engeenier.
+                    </p>
+                </div>
+                <StackCard
+                  technologies={[
+                    Technologies.react,
+                    Technologies.angular,
+                    Technologies.cSharp,
+                    Technologies.netCore,
+                    Technologies.sqlServer
+                  ]}
+                >
+                    <div slot="stack-header" class="flex items-center gap-2">
+                        <p class="text-xl">My stack @</p><IntelLogo className="w-12" />
+                    </div>
+                </StackCard>
+                <StackCard
+                  technologies={[
+                    Technologies.react,
+                    Technologies.typescript,
+                    Technologies.python,
+                    Technologies.flask,
+                    Technologies.postgresql
+                  ]}
+                >
+                    <div slot="stack-header" class="flex items-center gap-2">
+                        <p class="text-xl">My stack @</p><IkatechLogo className="w-25" />
+                    </div>
+                </StackCard>
+                <StackCard
+                  technologies={[
+                    Technologies.react,
+                    Technologies.typescript,
+                    Technologies.python,
+                    Technologies.flask,
+                    Technologies.postgresql,
+                    Technologies.mongodb
+                  ]}
+                >
+                    <div slot="stack-header" class="flex items-center gap-2">
+                        <p class="text-xl">My personal stack
+                    </div>
+                </StackCard>
+                <StackCard
+                  technologies={[
+                    Technologies.git,
+                    Technologies.docker,
+                    Technologies.redis,
+                    Technologies.uml,
+                    Technologies.aws,
+                    Technologies.azure
+                  ]}
+                >
+                    <div slot="stack-header" class="flex items-center gap-2">
+                        <p class="text-xl">Tools and technologies
+                    </div>
+                </StackCard>
+            </div>
+        </Tab>
+    </div>
+</AboutMeLayout>

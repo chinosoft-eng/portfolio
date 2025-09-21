@@ -1,0 +1,40 @@
+---
+import Tab from "../../components/ui/Tab.astro";
+import AboutMeLayout from "./index.astro";
+
+---
+
+<AboutMeLayout>
+    <div class="flex h-full flex-1 min-h-0 w-full overflow-y-auto">
+        <Tab sectionName="Education">
+            <div class="flex flex-col gap-2 p-4">
+                <h2 class="text-xl text-heading-foreground font-semibold">
+                    My education
+                </h2>
+                <p class="text-foreground">
+                    My formal education, which has shaped me into the professional I am today.
+                </p>
+            </div>
+            <div class="flex flex-col gap-4 p-4">
+                <div class="bg-slate-800 w-full p-2 rounded-lg">
+                    <div class="flex gap-4 items-center min-w-0">
+                        <img src="/src/assets/logos/uvLogo.png" class="w-11"> 
+                        <div>
+                            <h2 class="text-heading-foreground font-bold text-2xl">Bachelor’s Degree in Software Engineering</h2>
+                            <p class="text-foreground">2017 - 2022 @ Universidad Veracruzana</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-800 w-full p-2 rounded-lg">
+                    <div class="flex gap-4 items-center min-w-0">
+                        <img src="/src/assets/logos/kioskLogo.png" class="w-11"> 
+                        <div>
+                            <h2 class="text-heading-foreground font-semibold text-xl">English course</h2>
+                            <p class="text-foreground">2021 - 2022 @ Kiosk cle</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Tab>
+    </div>
+</AboutMeLayout>

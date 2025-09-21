@@ -1,0 +1,74 @@
+---
+import '../styles/global.css';
+import CloseIcon from './ui/icons/CloseIcon.astro';
+import MenuIcon from './ui/icons/MenuIcon.astro';
+
+const {pathname} = Astro.url
+---
+
+<nav class="relative w-full h-[56px] border border-stroke flex items-center justify-between lg:justify-start px-6">
+    <div>
+        <p class="text-foreground text-lg w-[225px]">miguel-quiroz</p>
+    </div>
+    <div class="hidden lg:flex flex-1 h-full w-full items-center">
+        <a 
+            class:list={[
+                "text-lg border-l border-l-stroke px-10 h-full flex items-center hover:text-heading-foreground hover:border-b-2 hover:border-b-primary",
+                { 
+                    "border-b-2 border-b-primary text-heading-foreground" : pathname === "/",
+                    "text-foreground" : pathname !== "/"  
+                },
+            ]} 
+            href="/"
+        >
+            _home
+        </a>
+        <a 
+            class:list={[
+                "text-lg border-l border-l-stroke px-10 h-full flex items-center hover:text-heading-foreground hover:border-b-2 hover:border-b-primary",
+                { 
+                    "border-b-2 border-b-primary text-heading-foreground" : pathname.includes("/about-me"),
+                    "text-foreground" : !pathname.includes("/about-me")  
+                },
+            ]} 
+            href="/about-me/bio"
+        >
+            _about-me
+        </a>
+        <a 
+            class:list={[
+                "text-lg border-l border-l-stroke border-r border-r-stroke px-10 h-full flex items-center hover:text-heading-foreground hover:border-b-2 hover:border-b-primary",
+                { 
+                    "border-b-2 border-b-primary text-heading-foreground" : pathname === "/projects",
+                    "text-foreground" : pathname !== "/projects"  
+                },
+            ]} 
+            href="/projects"
+        >
+            _projects
+        </a>
+    </div>
+    <div class="border-stroke border-l h-full pl-4 pr-0 flex justify-center items-center overflow-visible lg:hidden">
+        <button id="open-navbar">
+            <MenuIcon className='w-8 fill-foreground' />
+        </button>
+        <button id="close-navbar" class="hidden">
+            <CloseIcon className='w-8 fill-foreground' />
+        </button>
+    </div>
+    <div class="hidden lg:block h-full">
+        <a 
+            class:list={[
+                "text-lg border-l border-l-stroke px-10 h-full flex items-center hover:text-heading-foreground hover:border-b-2 hover:border-b-primary",
+                { 
+                    "border-b-2 border-b-primary text-heading-foreground" : pathname === "/contact-me",
+                    "text-foreground" : pathname !== "/contact-me"  
+                },
+            ]} 
+            href="/about-me/contact"
+        >
+            _contact-me
+        </a>
+    </div>
+
+</nav>

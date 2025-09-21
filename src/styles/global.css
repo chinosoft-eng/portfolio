@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+
+@theme {
+  --font-display: "Fira Code", "Courier New", monospace;
+
+  --color-background: #0F172B;
+  --color-backdrop: #020618;
+  --color-stroke: #314158;
+  --color-foreground: #90A1B9;
+  --color-heading-foreground: #F8FAFC;
+  --color-link-foreground: #FFA1AD;
+  --color-primary: #FFB86A;
+}

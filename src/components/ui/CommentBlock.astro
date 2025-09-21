@@ -1,0 +1,105 @@
+---
+interface Props {
+    value: string;
+}
+
+const {value} = Astro.props;
+
+---
+
+<div id="comment-block" class="w-full text-foreground text-lg overflow-y-auto min-h-0" data-content={value}></div>
+
+<script>
+    async function renderCodeBlock(){
+        const NUMBER_LINE_WIDTH = 35;
+        const commentBlock = document.getElementById("comment-block");
+
+        if(!commentBlock)
+            return;
+
+        commentBlock.innerHTML = '';
+        const lineMaxWidth = commentBlock.offsetWidth - NUMBER_LINE_WIDTH;
+        let content: string = commentBlock.dataset.content ?? "";
+
+        // Create a hidden measurer
+        const measurer = document.createElement('div');
+        measurer.style.fontFamily = '"Barlow","Courier New",monospace"';
+        measurer.style.textWrap = 'nowrap';
+        measurer.style.fontSize = '1.25rem';
+        measurer.style.lineHeight = 'calc(1.75/1.125)';
+        measurer.style.visibility = 'hidden';
+        measurer.style.width = "fit-content";
+        measurer.style.height = "fit-content";
+        measurer.textContent = "";
+
+        commentBlock.appendChild(measurer);
+
+        const lines = [];
+        let tempLine = '';
+        let currentWidth: number | null = null;
+        let currentWord = '';
+        let currentLineStart = 0;
+        let currentWordStart = 0;
+
+        // Count lines
+        for(let i=0; i < content.length; i++){
+            const char = content[i];
+
+            if(char === ' ' || char === '' || char === '\n'){
+                currentWord = '';
+                currentWordStart = i;
+            }else {
+                currentWord += char;
+            }
+
+            measurer.textContent = tempLine + char;
+            const rects = measurer.getClientRects();
+            currentWidth = rects.length ? rects[rects.length - 1].width : currentWidth;
+
+            if (char === '\n' || (currentWidth !== null && (currentWidth ?? 0) > lineMaxWidth)) {
+                lines.push(content.slice(currentLineStart, currentWordStart));
+                currentLineStart = currentWordStart + 1;
+                tempLine = currentWord;
+            } else {
+                tempLine += char;
+            }
+
+        }
+
+        if (tempLine)
+            lines.push(tempLine);
+
+        commentBlock.removeChild(measurer);
+
+        // Render the comment block
+        for(let i=0; i < lines.length + 2; i++){
+            const containerElement = document.createElement("p");
+            containerElement.style.display = "flex";
+            //containerElement.style.gap
+
+            const lineNumberElement = document.createElement("span");
+            lineNumberElement.classList.add("text-foreground");
+            lineNumberElement.classList.add("text-left");
+            lineNumberElement.style.width = NUMBER_LINE_WIDTH + "px";
+            lineNumberElement.innerText = (i+1).toString();
+
+            containerElement.appendChild(lineNumberElement);
+            const lineContent = document.createElement("span");
+
+            if(i==0)
+                lineContent.textContent += "/**";
+
+            if(i > 0 && i < lines.length + 1)
+                lineContent.innerText = `* ${lines[i-1]}`
+
+            if(i == lines.length + 1)
+                lineContent.textContent += "*/";
+
+            containerElement.appendChild(lineContent);
+            commentBlock.appendChild(containerElement);
+        }
+    }
+
+    renderCodeBlock();
+    window.addEventListener('resize', renderCodeBlock);
+</script>

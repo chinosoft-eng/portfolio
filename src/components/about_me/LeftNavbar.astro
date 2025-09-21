@@ -1,0 +1,45 @@
+---
+import DropdownIcon from "../ui/icons/DropdownIcon.astro";
+import FolderIcon from "../ui/icons/FolderIcon.astro";
+
+---
+
+<div class="w-full md:w-[250px] border-x border-stroke flex">
+    <ul class="w-full">
+        <li class="w-full border-b border-stroke cursor-pointer">
+            <p class="px-4 py-2 text-slate/50 border-b border-stroke flex gap-2 items-center hover:text-heading-foreground">
+                <DropdownIcon />
+                Personal info
+            </p>
+            <ul id="personal-info-dropdown">
+                <li>
+                    <a href="/about-me/bio">
+                        <p class="flex items-center gap-2 text-sm text-foreground px-4 py-1 hover:bg-stroke hover:text-heading-foreground">
+                            -
+                            <FolderIcon color="fill-rose-200" />
+                            Bio
+                        </p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/about-me/education">
+                        <p class="flex px-4 py-1 items-center gap-2 text-sm text-foreground hover:bg-stroke hover:text-heading-foreground">
+                            -
+                            <FolderIcon color="fill-indigo-200 " />
+                            Education
+                        </p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/about-me/contact">
+                        <p class="flex px-4 py-1 items-center gap-2 text-sm text-foreground hover:bg-stroke hover:text-heading-foreground">
+                            -
+                            <FolderIcon color="fill-teal-200 " />
+                            Contact me
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

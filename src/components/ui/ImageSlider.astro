@@ -1,0 +1,149 @@
+---
+import type { ImageMetadata } from 'astro'
+
+interface Image {
+    image: ImageMetadata; 
+    alt: string; 
+}
+
+interface Props {
+    images: Image[];
+}
+
+const { images } = Astro.props;
+---
+
+<div id="img-slider-container" class="w-full h-full">
+    <div class="img-wrapper">
+        {
+            images.map((img: Image, index) => (
+                <div class="img-slide">
+                    <img id={`img-slider-item-${index}`} src={img.image.src} alt={img.alt} />
+                </div>
+            ))
+        }
+    </div>
+    <div class="absolute left-0 right-0 bottom-5 flex items-center justify-center gap-2">
+        {images.map((_, _1) => 
+            (<div class={`image-dot w-3.5 h-3.5 rounded-full bg-stroke border border-white cursor-pointer`} />)
+        )}
+    </div>
+    <button 
+        class="prev w-12 h-12 absolute text-lg text-white rounded-full bg-stroke hover:bg-foreground flex items-center justify-center cursor-pointer" 
+        aria-label="Previous image"
+    >
+        &#10094;
+    </button>
+    <button 
+        class="next w-12 h-12 absolute text-lg text-white p-4 rounded-full bg-stroke hover:bg-foreground flex items-center justify-center cursor-pointer" 
+        aria-label="Next image"
+    >
+        &#10095;
+    </button>
+</div>
+
+<style>
+    #img-slider-container {
+        position: relative;
+        max-width: 800px;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    .img-wrapper {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+  
+    .img-slide {
+        min-width: 100%;
+    }
+  
+    .img-slide img {
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+    }
+  
+    /* Next & previous buttons */
+    .prev, .next {
+        top: 50%;
+        margin-top: -22px;        
+    }
+  
+    .next {
+        right: 20px;
+    }
+  
+    .prev {
+        left: 20px;
+    }
+</style>
+
+<script>
+  let slideIndex = 0; // Start at 0 for array-like indexing
+  let slides = document.querySelectorAll(".img-slide");
+  let wrapper = document.querySelector(".img-wrapper");
+  let imageDotsIndicators = document.querySelectorAll(".image-dot");
+
+  function updateDotIndicator(){
+    imageDotsIndicators.forEach((element, index) => {
+        if(index === slideIndex){
+            element.classList.add("bg-primary");
+            element.classList.remove("bg-stroke");
+        }else{
+            element.classList.add("bg-stroke"); 
+            element.classList.remove("bg-primary");
+        }
+    });
+  }
+
+  function updateCarousel() {
+    // Calculate the translation distance
+    const translateX = -slideIndex * 100;
+    // Apply the transformation
+    (wrapper as HTMLDivElement).style.transform = `translateX(${translateX}%)`;
+  }
+
+  function plusSlides(n: number) {
+    slideIndex += n;
+
+    // Handle wrapping around the ends
+    if (slideIndex >= slides.length) {
+      slideIndex = 0;
+    }
+    if (slideIndex < 0) {
+      slideIndex = slides.length - 1;
+    }
+
+    updateCarousel();
+    updateDotIndicator();
+  }
+
+  function goToSlide(n: number) {
+    slideIndex = n;
+
+    updateCarousel();
+    updateDotIndicator();
+  }
+
+  // Initial update
+  document.addEventListener('DOMContentLoaded', () => {
+    updateCarousel();
+    updateDotIndicator();
+
+    document.querySelector('.next')?.addEventListener('click', () => {
+      plusSlides(1);
+    });
+
+    document.querySelector('.prev')?.addEventListener('click', () => {
+      plusSlides(-1);
+    });
+
+    imageDotsIndicators.forEach((element, index) =>{
+        element.addEventListener('click', () => {
+            goToSlide(index);
+        });
+    })
+  });
+</script>

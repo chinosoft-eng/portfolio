@@ -1,0 +1,23 @@
+---
+import CodeSnipetsCarousel from "./CodeSnipetsCarousel.astro"
+import SnakeGame from "./SnakeGame.astro"
+---
+
+<div class="flex w-full h-full gap-10 px-10 xl:gap-30 justify-center items-center">
+    <div>
+        <div class="felx flex-col gap-4">
+            <p class="text-foreground text-lg">Hi all. I am</p>
+            <h1 class="text-heading-foreground text-4xl md:text-6xl font-semibold">Miguel Quiroz</h1>
+            <h2 class="text-indigo-500 text-xl md:text-4xl"> &gt; Software Engineer</h2>
+        </div>
+        <div class="mt-20">
+            <p class="text-foreground hidden lg:block">// complete the game to continue</p>
+            <p class="text-foreground">// find me on Github:</p>
+            <p><span class="text-indigo-500">const</span> <span class="text-teal-400">githubLink</span> = <a class="text-link-foreground" href="https://github.com/chinosoft-eng">"https://github.com/chinosoft-eng"</a>
+        </div>
+    </div>
+
+    <CodeSnipetsCarousel />
+    <SnakeGame />
+
+</div>

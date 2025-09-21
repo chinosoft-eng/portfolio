@@ -1,0 +1,113 @@
+---
+import { projects } from "../../catalogs/projects";
+import FilterSidePanel from "../../components/projects/index/FilterSidePanel.astro";
+import ProjectCard from "../../components/projects/index/ProjectCard.astro";
+import Tab from "../../components/ui/Tab.astro";
+import Layout from "../../layouts/Layout.astro";
+
+---
+
+<Layout>
+    <div class="w-full h-full flex bg-background overflow-y-auto">
+        <FilterSidePanel />
+        <Tab sectionName="My projects">
+            <div class="w-full h-full flex-1 flex p-4 md:p-8">
+                <div class="flex h-full flex-wrap gap-4 justify-center">
+                    {
+                        projects.map(project => (
+                            <ProjectCard {...project} />
+                        ))
+                    }
+                </div>
+            </div>
+        </Tab>
+    </div>
+</Layout>
+
+<script>
+    const PROJECT_TECHNOLOGIES_MAP: Record<string, number[]> = {
+        "react": [1, 2],
+        "typescript": [1, 2],
+        "javascript": [3],
+        "express": [2],
+        "node-js": [2],
+        "django": [3],
+        "flask": [1, 4],
+        "python": [1, 3, 4],
+        "c-sharp": [4],
+    }
+
+    const checkboxs = document.querySelectorAll('input[type="checkbox"]');
+    const checkedTechnologies = new Set<string>();
+
+    /**
+     * Update the visibility of the project cards based on the checked technologies
+     */
+    const updateProjectsVisibility = () => {
+        const projectCards = document.querySelectorAll('[id^="project-card-"]');
+
+        if (checkedTechnologies.size === 0) {
+            projectCards.forEach(card => {
+                card.classList.remove("hidden");
+
+                // small delay so transition runs
+                setTimeout(() => {
+                    card.classList.remove("opacity-0", "scale-90");
+                    card.classList.add("opacity-100", "scale-100");
+                }, 10);            
+            });
+        }else{
+            const projectIdsToShow = new Set<number>();
+
+            checkedTechnologies.forEach(tech => {
+                const projectIds = PROJECT_TECHNOLOGIES_MAP[tech];
+                projectIds.forEach(id => projectIdsToShow.add(id));
+            });
+
+            projectCards.forEach((card) => {
+                const cardId = parseInt(card.id.replace('project-card-', ''));
+                if (projectIdsToShow.has(cardId)) {
+                    card.classList.remove("hidden");
+
+                    // small delay so transition runs
+                    setTimeout(() => {
+                        card.classList.remove("opacity-0", "scale-90");
+                        card.classList.add("opacity-100", "scale-100");
+                    }, 10);
+                } else {
+                    card.classList.remove("opacity-100", "scale-100");
+                    card.classList.add("opacity-0", "scale-90");
+
+                    // after animation, hide element
+                    setTimeout(() => {
+                        card.classList.add("hidden");
+                    }, 300); // match duration-300
+                }
+            });
+        }
+    }
+
+    /**
+     * Handle the change event of the checkbox
+     * @param event the change event
+     */
+    const onCheckboxChange = (event: Event) => {
+        const target = event.target as HTMLInputElement;
+
+        const checked = target.checked;
+        const id = target.id;
+        const technology = id.replace('-filter', '');
+            
+        if (checked) 
+            checkedTechnologies.add(technology);
+        else 
+            checkedTechnologies.delete(technology);
+
+        updateProjectsVisibility();
+    }
+
+    // Add event listeners to all checkboxs
+    checkboxs.forEach((checkbox) => {
+        checkbox.addEventListener('change', onCheckboxChange);
+    });
+</script>

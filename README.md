@@ -1,52 +1,104 @@
-# Astro Starter Kit: Basics
+# 🚀 Portfolio
 
-```sh
-pnpm create astro@latest -- --template basics
+A modern, responsive developer portfolio built with [Astro](https://astro.build/), [TypeScript](https://www.typescriptlang.org/), and [Tailwind CSS](https://tailwindcss.com/).  
+Showcases your projects, skills, and contact information with a focus on performance, accessibility, and clean code.
+
+---
+
+## ✨ Features
+
+- **Astro**: Fast, content-focused static site generation
+- **TypeScript**: Type-safe components and data models
+- **Tailwind CSS**: Utility-first, responsive styling
+- **Component-based**: Modular, reusable UI components
+- **SEO-friendly**: Meta tags, Open Graph, and sitemap support
+- **Accessibility**: Semantic HTML and keyboard navigation
+- **Image Optimization**: Efficient asset handling
+- **Mobile-first**: Responsive layouts and navigation
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+  assets/         # Images and static assets
+  catalogs/       # Data sources (e.g., project lists)
+  components/     # UI components (Navbar, Footer, Cards, etc.)
+  layouts/        # Page layouts
+  models/         # TypeScript types and interfaces
+  pages/          # Astro pages (routes)
+  styles/         # Global and component styles
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+---
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚦 Getting Started
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+1. **Install dependencies**
+   ```sh
+   npm install
+   ```
 
-## 🚀 Project Structure
+2. **Start the development server**
+   ```sh
+   npm run dev
+   ```
 
-Inside of your Astro project, you'll see the following folders and files:
+3. **Build for production**
+   ```sh
+   npm run build
+   ```
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+4. **Preview the production build**
+   ```sh
+   npm run preview
+   ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+---
 
-## 🧞 Commands
+## 🛠️ Customization
 
-All commands are run from the root of the project, from a terminal:
+- **Add/Edit Projects:**  
+  Update `src/catalogs/projects.ts` and add project descriptions in `src/catalogs/descriptions/`.
+- **Update Skills/Stack:**  
+  Edit or add icons/components in `src/components/ui/icons/`.
+- **Change Styles:**  
+  Modify `src/styles/global.css` or use Tailwind utility classes.
+- **Navigation:**  
+  Edit navigation links in `Navbar.astro` and `MobileNavbar.astro`.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+---
 
-## 👀 Want to learn more?
+## 🧪 Quality & Best Practices
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- **TypeScript** for type safety
+- **ESLint** and **Prettier** for code consistency
+- **Semantic HTML** for accessibility
+- **Reusable components** for maintainability
+- **Content collections** for structured content (optional)
+
+---
+
+## 🤝 Contributing
+
+Pull requests and suggestions are welcome!  
+Please open an issue to discuss changes or improvements.
+
+---
+
+## 📄 License
+
+[MIT](LICENSE)
+
+---
+
+## 🙋‍♂️ Author
+
+Made with ❤️ by [chinosoft-eng](https://github.com/chinosoft-eng)
+
+---
+
+## 🙌 Credits
+
+Design by [Darelova](https://www.darelova.com/)

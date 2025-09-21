@@ -1,0 +1,179 @@
+---
+import { Code } from "astro:components";
+
+const code1 = `# Pre-order traversal binary tree
+def preorder_traversal(node):
+  if not node: 
+    return None
+
+  print(node.val)
+  preorder_traversal(node.left)
+  preorder_traversal(node.right)
+`;
+
+const code2 = `# In-order traversal binary tree
+
+  def inorder_traversal(node):
+    if not node: 
+      return None
+
+    inorder_traversal(node.left)
+    print(node.val)
+    inorder_traversal(node.right)
+`;
+
+const code3 = `# Post-order traversal binary tree
+  def postorder_traversal(node):
+    if not node: 
+      return None
+    
+    postorder_traversal(node.left)
+    postorder_traversal(node.right)
+    print(node.val)
+`;
+
+const code4 = `# Level order binary tree
+  def level_order():
+    queue, result = [root], []
+    while queue:
+      for _ in range(len(queue)):
+        curr = queue.pop(0)
+        result.append(curr.val)
+        if curr.left: queue.append(curr.left)
+        if curr.right: queue.append(curr.right)
+    return result
+`;
+---
+
+<div class="carousel-container hidden" id="code-snipets-carousel">
+  <div class="carousel">
+    <div class="code-card">
+      <Code code={code1} lang="python" />
+    </div>
+    <div class="code-card">
+      <Code code={code2} lang="python" />
+    </div>
+    <div class="code-card">
+      <Code code={code3} lang="python" />
+    </div>
+    <div class="code-card">
+      <Code code={code4} lang="python" />
+    </div>
+  </div>
+</div>
+
+<style>
+  .carousel-container {
+    width: 600px;
+    min-width: 600px;
+    height: 100%;
+    min-height: 100%;
+    position: relative;
+    overflow: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+
+  .carousel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .carousel-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .code-card {
+    scroll-snap-align: center;
+    width: 590px;
+    height: 265px;
+    background: rgba(1, 18, 33);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+
+    position: absolute;
+    transition: all 0.7s ease-in-out;
+    overflow: visible;
+  }
+
+  .code-card:nth-child(1) {
+    transform: translateY(-710px);
+    opacity: 0.2;
+  }
+
+  .code-card:nth-child(2) {
+    transform: translateY(-415px);
+    opacity: 0.5;
+  }
+
+  .code-card:nth-child(3) {
+    transform: translateY(-120px); /* Center element */
+    opacity: 1;
+  }
+
+  .code-card:nth-child(4) {
+    transform: translateY(175px);
+    opacity: 0.5;
+  }
+
+
+  .astro-code {
+    background-color: rgb(1, 18, 33) !important;
+  }
+
+</style>
+
+<style is:global>
+  span.line {
+    font-size: 0.75em !important;
+  }
+</style>
+
+<script>
+  // Script to controll the carosel loguc
+  const carouselItems = document.querySelectorAll(".code-card");
+
+  const initialElemetPosition = -710;
+  const finalElementPosition = 175;
+  const distanceBetweenElements = 295;
+
+  const carouselItemsPositions: Record<number, number> = {
+    0: -710,
+    1: -415,
+    2: -120,
+    3: 175,
+  }
+
+  const opacityOfCarouselElements = {
+    0: 1,
+    1: 0.5,
+    2: 0.2
+  }
+
+  function moveCarousel() {
+    // Update the transforms for each element
+    carouselItems.forEach((item, index) => {
+      if(carouselItemsPositions[index] < finalElementPosition){
+        carouselItemsPositions[index] += distanceBetweenElements;
+      }else{
+        carouselItemsPositions[index] = initialElemetPosition;
+      }
+
+      const distanceFromCenterElement = Math.abs((carouselItemsPositions[index] + 120) / distanceBetweenElements);
+
+      (item as HTMLDivElement).style.transform = `translateY(${carouselItemsPositions[index]}px)`;
+      // @ts-ignore
+      (item as HTMLDivElement).style.opacity = opacityOfCarouselElements[distanceFromCenterElement];
+    });
+  }
+
+  // Move the carousel every 3 seconds
+  setInterval(moveCarousel, 3000);
+</script>

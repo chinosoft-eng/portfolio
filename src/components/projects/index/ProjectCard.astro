@@ -1,0 +1,93 @@
+---
+import type { Project } from '../../../models/Project';
+import { Technologies, TECHNOLOGIES_ICON_MAPS, TECHNOLOGIES_NAME_MAPS } from '../../../models/Technologies';
+
+
+interface Props extends Project { }
+
+const { number, name, idenfiticator, image, technologies, description } = Astro.props;
+
+
+// Constast color for fill of the icons
+const TECHNOLOGIES_ICON_CLASS_MAPS: Record<Technologies, string> = {
+    [Technologies.react]: "fill-black",
+    [Technologies.angular]: "",
+    [Technologies.javascript]: "fill-[#F0DB4F]",
+    [Technologies.typescript]: "fill-[#007acc]",
+    [Technologies.express]: "",
+    [Technologies.nodejs]: "fill-[#3e863d]",
+    [Technologies.electron]: "",
+    [Technologies.django]: "fill-white",
+    [Technologies.flask]: "fill-white",
+    [Technologies.python]: "fill-white",
+    [Technologies.cSharp]: "fill-white",
+    [Technologies.netCore]: "",
+    [Technologies.mongodb]: "",
+    [Technologies.docker]: "",
+    [Technologies.postgresql]: "",
+    [Technologies.sqlServer]: "",
+    [Technologies.git]: "",
+    [Technologies.redis]: "",
+    [Technologies.uml]: "",
+    [Technologies.aws]: "",
+    [Technologies.azure]: "",
+}
+
+// Constast color for bg of the icons
+const TECHNOLOGIES_COLOR_MAPS: Record<Technologies, any> = {
+    [Technologies.react]: "#A3B3FF",
+    [Technologies.angular]: "",
+    [Technologies.javascript]: "#F0DB4F",
+    [Technologies.typescript]: "#007ACC",
+    [Technologies.express]: "#FFFFFF",
+    [Technologies.nodejs]: "#2c2c2c",
+    [Technologies.electron]: "#47848f",
+    [Technologies.django]: "#0D542B",
+    [Technologies.flask]: "#9F2D00",
+    [Technologies.python]: "#0B4F4A",
+    [Technologies.cSharp]: "#3C0366",
+    [Technologies.netCore]: "",
+    [Technologies.mongodb]: "#3c3c3c",
+    [Technologies.docker]: "#3c3c3c",
+    [Technologies.postgresql]: "",
+    [Technologies.sqlServer]: "",
+    [Technologies.git]: "",
+    [Technologies.redis]: "",
+    [Technologies.uml]: "",
+    [Technologies.aws]: "",
+    [Technologies.azure]: "",
+}
+
+---
+
+
+<div class="w-[325px] md:max-w-[500px] md:w-[500px] md:min-w-[500px] transition-all duration-300 ease-in-out opacity-100 scale-100" id={`project-card-${number}`}>
+    <h3 class="ml-1 font-semibold text-indigo-500">Project {number} <span class="font-light text-foreground">// {idenfiticator}</span></h3>
+    <div class="min-w-0 bg-slate-950 rounded-lg mt-2 h-[400px] flex flex-col justify-between">
+        <div class="relative min-w-0 bg-slate-600 rounded-t-lg">
+            <div class="absolute top-5 right-5 flex gap-4">
+                {technologies.map(technology => {
+                    const Icon = TECHNOLOGIES_ICON_MAPS[technology];
+
+                    return (
+                        <div class="group relative inline-block">
+                            <div class="w-8 h-8 p-1 rounded fill-[#3a3a3a] relative" style={`background-color: ${TECHNOLOGIES_COLOR_MAPS[technology]}`}>
+                                <Icon className={TECHNOLOGIES_ICON_CLASS_MAPS[technology]} />
+                            </div>
+                            <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 p-1 bg-slate-600 text-heading-foreground text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                                {TECHNOLOGIES_NAME_MAPS[technology]}
+                            </div>
+                        </div>
+                    )
+                })}
+            </div>
+            <img src={image.src} class="rounded-t-lg h-[145px] object-cover w-full"  alt={`Cover image for ${name} project`} />
+        </div>
+        <div class="p-6">
+            <p class="text-foreground text-md md:text-lg">{description}</p>
+        </div>
+        <div class="px-6 pb-6">
+            <a href={`/projects/${number}`} class="bg-slate-600 text-heading-foreground p-2 rounded text-sm cursor-pointer hover:bg-primary hover:text-[#020618]">view-project</a>
+        </div>
+    </div>
+</div>

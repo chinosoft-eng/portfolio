@@ -1,0 +1,31 @@
+---
+import type { JSX } from 'astro/jsx-runtime';
+import CheckIcon from "../../ui/icons/CheckIcon.astro";
+
+interface Props {
+    Icon: JSX.Element;
+    label: string;
+    id: string;
+}
+
+const { Icon, label, id } = Astro.props;
+---
+
+<div class="flex items-center gap-4 relative">
+    <input
+        type="checkbox"
+        id={`${id}-filter`}
+        class="peer w-4 h-4 appearance-none border border-slate-500 checked:bg-slate-500"
+    />
+    <span
+        class="absolute text-white opacity-0 peer-checked:opacity-100 top-1.5 left-0.5 pointer-events-none"
+    >
+        <CheckIcon />
+    </span>
+    <label
+        for={`${id}-filter`}
+        class="flex text-heading-foreground items-center gap-2"
+    >
+        <Icon className="fill-foreground w-5" /> {label}
+    </label>
+</div>
