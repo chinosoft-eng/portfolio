@@ -2,6 +2,9 @@
 import Tab from "../../components/ui/Tab.astro";
 import AboutMeLayout from "./index.astro";
 
+import UvLogo from "../../assets/logos/uvLogo.png";
+import KiosLogo from "../../assets/logos/kioskLogo.png";
+
 ---
 
 <AboutMeLayout>
@@ -18,7 +21,7 @@ import AboutMeLayout from "./index.astro";
             <div class="flex flex-col gap-4 p-4">
                 <div class="bg-slate-800 w-full p-2 rounded-lg">
                     <div class="flex gap-4 items-center min-w-0">
-                        <img src="/src/assets/logos/uvLogo.png" class="w-11"> 
+                        <img src={UvLogo.src} class="w-11" alt="UV Logo">
                         <div>
                             <h2 class="text-heading-foreground font-bold text-2xl">Bachelor’s Degree in Software Engineering</h2>
                             <p class="text-foreground">2017 - 2022 @ Universidad Veracruzana</p>
@@ -27,7 +30,7 @@ import AboutMeLayout from "./index.astro";
                 </div>
                 <div class="bg-slate-800 w-full p-2 rounded-lg">
                     <div class="flex gap-4 items-center min-w-0">
-                        <img src="/src/assets/logos/kioskLogo.png" class="w-11"> 
+                        <img src={KiosLogo.src} class="w-11" alt="Kios Logo">
                         <div>
                             <h2 class="text-heading-foreground font-semibold text-xl">English course</h2>
                             <p class="text-foreground">2021 - 2022 @ Kiosk cle</p>
