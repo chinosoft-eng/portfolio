@@ -7,7 +7,6 @@ const {value} = Astro.props;
 
 ---
 
-
 <div id="comment-block" class="w-full text-foreground text-lg overflow-y-auto min-h-0" data-content={value}></div>
 
 <script>
@@ -22,7 +21,7 @@ const {value} = Astro.props;
         const lineMaxWidth = commentBlock.offsetWidth - NUMBER_LINE_WIDTH;
         let content: string = commentBlock.dataset.content ?? "";
 
-        // Create hidden measurer
+        // Create a hidden measurer
         const measurer = document.createElement('div');
         measurer.style.fontFamily = '"Barlow","Courier New",monospace"';
         measurer.style.textWrap = 'nowrap';
@@ -52,7 +51,7 @@ const {value} = Astro.props;
             }else {
                 currentWord += char;
             }
-                
+
             measurer.textContent = tempLine + char;
             const rects = measurer.getClientRects();
             currentWidth = rects.length ? rects[rects.length - 1].width : currentWidth;
@@ -64,14 +63,14 @@ const {value} = Astro.props;
             } else {
                 tempLine += char;
             }
-               
+
         }
-            
-        if (tempLine) 
-            lines.push(tempLine);      
+
+        if (tempLine)
+            lines.push(tempLine);
 
         commentBlock.removeChild(measurer);
-        
+
         // Render the comment block
         for(let i=0; i < lines.length + 2; i++){
             const containerElement = document.createElement("p");

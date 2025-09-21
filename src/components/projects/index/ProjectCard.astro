@@ -8,10 +8,10 @@ interface Props extends Project { }
 const { number, name, idenfiticator, image, technologies, description } = Astro.props;
 
 
-
 // Constast color for fill of the icons
 const TECHNOLOGIES_ICON_CLASS_MAPS: Record<Technologies, string> = {
     [Technologies.react]: "fill-black",
+    [Technologies.angular]: "",
     [Technologies.javascript]: "fill-[#F0DB4F]",
     [Technologies.typescript]: "fill-[#007acc]",
     [Technologies.express]: "",
@@ -21,14 +21,22 @@ const TECHNOLOGIES_ICON_CLASS_MAPS: Record<Technologies, string> = {
     [Technologies.flask]: "fill-white",
     [Technologies.python]: "fill-white",
     [Technologies.cSharp]: "fill-white",
+    [Technologies.netCore]: "",
     [Technologies.mongodb]: "",
     [Technologies.docker]: "",
-    [Technologies.postgresql]: ""
+    [Technologies.postgresql]: "",
+    [Technologies.sqlServer]: "",
+    [Technologies.git]: "",
+    [Technologies.redis]: "",
+    [Technologies.uml]: "",
+    [Technologies.aws]: "",
+    [Technologies.azure]: "",
 }
 
 // Constast color for bg of the icons
 const TECHNOLOGIES_COLOR_MAPS: Record<Technologies, any> = {
     [Technologies.react]: "#A3B3FF",
+    [Technologies.angular]: "",
     [Technologies.javascript]: "#F0DB4F",
     [Technologies.typescript]: "#007ACC",
     [Technologies.express]: "#FFFFFF",
@@ -38,9 +46,16 @@ const TECHNOLOGIES_COLOR_MAPS: Record<Technologies, any> = {
     [Technologies.flask]: "#9F2D00",
     [Technologies.python]: "#0B4F4A",
     [Technologies.cSharp]: "#3C0366",
+    [Technologies.netCore]: "",
     [Technologies.mongodb]: "#3c3c3c",
     [Technologies.docker]: "#3c3c3c",
-    [Technologies.postgresql]: ""
+    [Technologies.postgresql]: "",
+    [Technologies.sqlServer]: "",
+    [Technologies.git]: "",
+    [Technologies.redis]: "",
+    [Technologies.uml]: "",
+    [Technologies.aws]: "",
+    [Technologies.azure]: "",
 }
 
 ---

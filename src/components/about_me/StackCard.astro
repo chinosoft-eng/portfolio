@@ -1,8 +1,57 @@
+---
+import {Technologies, TECHNOLOGIES_ICON_MAPS, TECHNOLOGIES_NAME_MAPS} from "../../models/Technologies";
+
+interface Props {
+    technologies: Technologies[]
+}
+
+const { technologies } = Astro.props;
+
+const TECHNOLOGIES_ICONS_FILLS_MAPS: Record<Technologies,string> = {
+    [Technologies.react]: "fill-[#61DAFB]",
+    [Technologies.typescript]: "fill-[#007acc]",
+    [Technologies.cSharp]: "fill-white",
+    [Technologies.flask]: "fill-white",
+    [Technologies.uml]: "fill-white",
+    [Technologies.postgresql]: "fill-white",
+    [Technologies.angular]: "",
+    [Technologies.python]: "fill-[#eadcb6]",
+    [Technologies.django]: "",
+    [Technologies.aws]: "",
+    [Technologies.azure]: "",
+    [Technologies.git]: "",
+    [Technologies.redis]: "",
+    [Technologies.sqlServer]: "",
+    [Technologies.electron]: "",
+    [Technologies.nodejs]: "",
+    [Technologies.netCore]: "",
+    [Technologies.mongodb]: "",
+    [Technologies.docker]: "",
+    [Technologies.express]: "",
+    [Technologies.javascript]: ""
+}
+
+---
+
 <div class="bg-slate-800 rounded-lg p-3 mt-4 flex flex-col gap-2">
     <div class="flex gap-2 items-center">
         <slot name="stack-header" />
     </div>
     <div class="bg-slate-950 p-2 rounded-lg flex gap-4">
-        <slot />
+        {
+          technologies.map(technology => {
+              const Icon = TECHNOLOGIES_ICON_MAPS[technology];
+              const classNames = "w-10 " + TECHNOLOGIES_ICONS_FILLS_MAPS[technology];
+
+              return (
+                <div class="flex flex-col gap-1 justify-center items-center">
+                    <Icon className={classNames} />
+                    <p class="text-center text-xs text-foreground">
+                        {TECHNOLOGIES_NAME_MAPS[technology]}
+                    </p>
+                </div>
+              )
+          })
+        }
     </div>
 </div>

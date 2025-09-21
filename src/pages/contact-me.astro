@@ -45,10 +45,10 @@ import AboutMeLayout from "../pages/about-me/index.astro";
                             class="bg-backdrop p-2 rounded text-foreground border border-border focus:ring-1 ring-slate-300 focus:outline-none"
                         ></textarea>
                     </div>
-                    <button 
-                        id="submit-button" 
-                        type="submit" 
-                        class="disabled:bg-slate-700 text-[#020618] bg-primary/80 disabled:text-slate-500 p-2 rounded-lg w-fit hover:bg-primary cursor-pointer disabled:cursor-default" 
+                    <button
+                        id="submit-button"
+                        type="submit"
+                        class="disabled:bg-slate-700 text-[#020618] bg-primary/80 disabled:text-slate-500 p-2 rounded-lg w-fit hover:bg-primary cursor-pointer disabled:cursor-default"
                         disabled
                     >
                         submit-message
@@ -74,7 +74,7 @@ import AboutMeLayout from "../pages/about-me/index.astro";
                 </div>
             </Tab>
         </div>
-        
+
     </div>
 </AboutMeLayout>
 
@@ -88,8 +88,8 @@ import AboutMeLayout from "../pages/about-me/index.astro";
     const messageForm = document.getElementById("message-form");
 
     function isFormComplete(){
-        return nameInput.value.trim().length > 0 
-            && emailInput.value.trim().length > 0 
+        return nameInput.value.trim().length > 0
+            && emailInput.value.trim().length > 0
             && messageInput.value.trim().length > 4;
     }
 
@@ -126,10 +126,10 @@ import AboutMeLayout from "../pages/about-me/index.astro";
 
         if(messageContent)
             messageContent.innerText = event?.target.value;
-        
+
         updateSubmitButtonStatus();
     });
-    
+
 
     messageForm?.addEventListener("submit", (event: any) => {
         event.preventDefault();
@@ -155,6 +155,6 @@ import AboutMeLayout from "../pages/about-me/index.astro";
 
         submitButton.disabled = true;
 
-        // Display message form sended
+        // Display message form send
     });
 </script>

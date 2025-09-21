@@ -59,9 +59,6 @@ const code4 = `# Level order binary tree
     <div class="code-card">
       <Code code={code4} lang="python" />
     </div>
-    <div class="code-card">
-      <Code code={code4} lang="python" />
-    </div>
   </div>
 </div>
 
@@ -100,7 +97,7 @@ const code4 = `# Level order binary tree
     padding: 1rem;
     backdrop-filter: blur(10px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    
+
     position: absolute;
     transition: all 0.7s ease-in-out;
     overflow: visible;
@@ -112,7 +109,7 @@ const code4 = `# Level order binary tree
   }
 
   .code-card:nth-child(2) {
-    transform: translateY(-415px); 
+    transform: translateY(-415px);
     opacity: 0.5;
   }
 
@@ -126,10 +123,6 @@ const code4 = `# Level order binary tree
     opacity: 0.5;
   }
 
-  .code-card:nth-child(5) {
-    transform: translateY(700px); 
-    opacity: 0.2;
-  }
 
   .astro-code {
     background-color: rgb(1, 18, 33) !important;
@@ -148,7 +141,7 @@ const code4 = `# Level order binary tree
   const carouselItems = document.querySelectorAll(".code-card");
 
   const initialElemetPosition = -710;
-  const finalElementPosition = 470;
+  const finalElementPosition = 175;
   const distanceBetweenElements = 295;
 
   const carouselItemsPositions: Record<number, number> = {
@@ -156,7 +149,6 @@ const code4 = `# Level order binary tree
     1: -415,
     2: -120,
     3: 175,
-    4: 470
   }
 
   const opacityOfCarouselElements = {
@@ -173,7 +165,7 @@ const code4 = `# Level order binary tree
       }else{
         carouselItemsPositions[index] = initialElemetPosition;
       }
-      
+
       const distanceFromCenterElement = Math.abs((carouselItemsPositions[index] + 120) / distanceBetweenElements);
 
       (item as HTMLDivElement).style.transform = `translateY(${carouselItemsPositions[index]}px)`;

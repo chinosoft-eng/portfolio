@@ -3,11 +3,16 @@ import Layout from "../../layouts/Layout.astro";
 import { projects } from "../../catalogs/projects";
 import Tab from "../../components/ui/Tab.astro";
 import ProjectsSidePanel from "../../components/projects/project_details/ProjectsSidePanel.astro";
-import ImageSlider from "../../components/ImageSlider.astro";
+import ImageSlider from "../../components/ui/ImageSlider.astro";
 import { Technologies, TECHNOLOGIES_ICON_MAPS, TECHNOLOGIES_NAME_MAPS } from "../../models/Technologies";
 import BrowserIcon from "../../components/ui/icons/BrowserIcon.astro";
 import DoneIcon from "../../components/ui/icons/DoneIcon.astro";
 import GithubIcon from "../../components/ui/icons/GithubIcon.astro";
+import GitIcon from "../../components/ui/icons/GitIcon.astro";
+import RedisIcon from "../../components/ui/icons/RedisIcon.astro";
+import UmlIcon from "../../components/ui/icons/UmlIcon.astro";
+import AwsIcon from "../../components/ui/icons/AwsIcon.astro";
+import AzureIcon from "../../components/ui/icons/AzureIcon.astro";
 
 export function getStaticPaths() {
     return projects.map((project) => ({
@@ -26,6 +31,7 @@ const Description = projectData.fullDescription;
 
 // Constast color for fill of the icons
 const TECHNOLOGIES_ICON_CLASS_MAPS: Record<Technologies, string> = {
+    [Technologies.angular]: "",
     [Technologies.react]: "fill-[#61dafb]",
     [Technologies.javascript]: "fill-[#F0DB4F]",
     [Technologies.typescript]: "fill-[#007acc]",
@@ -36,9 +42,16 @@ const TECHNOLOGIES_ICON_CLASS_MAPS: Record<Technologies, string> = {
     [Technologies.flask]: "fill-white",
     [Technologies.python]: "fill-[#F0B100]",
     [Technologies.cSharp]: "fill-white",
+    [Technologies.netCore]: "",
     [Technologies.mongodb]: "",
     [Technologies.postgresql]: "",
-    [Technologies.docker]: ""
+    [Technologies.sqlServer]: "",
+    [Technologies.docker]: "",
+    [Technologies.git]: "",
+    [Technologies.redis]: "",
+    [Technologies.uml]: "",
+    [Technologies.aws]: "",
+    [Technologies.azure]: "",
 }
 
 ---
@@ -64,22 +77,22 @@ const TECHNOLOGIES_ICON_CLASS_MAPS: Record<Technologies, string> = {
                         <div id="project-description" class="text-foreground ">
                             <Description />
                         </div>
-                      
+
                     </div>
                     <div class="w-full lg:w-1/3 my-8 px-4 md:px-6 h-fit min-w-0">
                         <div class="w-full bg-slate-800 rounded-lg p-4 min-w-0 flex flex-col ">
                             <p class="text-foreground text-lg">//{projectData.idenfiticator}</p>
                             <hr class="my-2 border border-stroke" />
                             <div class="m-2">
-                                <p>Technolgoies: </p>
-                                <div class="flex flex-col gap-4 bg-slate-950 rounded-lg p-4 my-1">                            
+                                <p>Technologies: </p>
+                                <div class="flex flex-col gap-4 bg-slate-950 rounded-lg p-4 my-1">
                                     {
                                         projectData.fullTechnologies.map(technology => {
                                             const Icon = TECHNOLOGIES_ICON_MAPS[technology];
 
                                             return (
                                                 <div class="flex gap-8 items-center">
-                                                    <Icon className={`w-8 ${TECHNOLOGIES_ICON_CLASS_MAPS[technology]}`}/> 
+                                                    <Icon className={`w-8 ${TECHNOLOGIES_ICON_CLASS_MAPS[technology]}`}/>
                                                     <span class="text-foreground">{TECHNOLOGIES_NAME_MAPS[technology]}</span>
                                                 </div>
                                             )
@@ -89,7 +102,7 @@ const TECHNOLOGIES_ICON_CLASS_MAPS: Record<Technologies, string> = {
                             </div>
                             <div class="m-2">
                                 {
-                                    projectData.usedOnProduction 
+                                    projectData.usedOnProduction
                                     && (
                                         <div class="flex gap-4 items-center p-2 rounded border border-green-900">
                                             <DoneIcon className="w-6 fill-green-800" />
@@ -101,13 +114,13 @@ const TECHNOLOGIES_ICON_CLASS_MAPS: Record<Technologies, string> = {
                             <div class="m-2">
                                 <p>Links: </p>
                                 <div class=" my-1">
-                                    <a 
-                                        href={projectData.linkToProject} 
+                                    <a
+                                        href={projectData.linkToProject}
                                         target="_blank" rel="noopener noreferrer"
                                         class="flex items-center gap-2 text-heading-foreground p-2 rounded border cursor-pointer hover:border-primary hover:text-primary"
                                     >
-                                        <BrowserIcon className="w-6" /> 
-                                        Go to live project 
+                                        <BrowserIcon className="w-6" />
+                                        Go to live project
                                     </a>
                                 </div>
                             </div>
@@ -116,32 +129,32 @@ const TECHNOLOGIES_ICON_CLASS_MAPS: Record<Technologies, string> = {
                                 <div class="flex flex-col gap-2 my-1">
                                     {
                                         projectData.linkToRepos?.map(repoInfo => (
-                                            <a 
-                                                href={repoInfo.link} 
+                                            <a
+                                                href={repoInfo.link}
                                                 target="_blank" rel="noopener noreferrer"
                                                 class="flex items-center gap-2 text-heading-foreground p-2 rounded border border-slate-950 cursor-pointer hover:border-slate-950 hover:bg-slate-900 bg-slate-950"
                                             >
-                                                <GithubIcon className="w-6 fill-white" /> 
-                                                {repoInfo.title} 
+                                                <GithubIcon className="w-6 fill-white" />
+                                                {repoInfo.title}
                                             </a>
                                         ))
                                     }
                                     {
                                         !projectData.linkToRepos && (
-                                            <div 
+                                            <div
                                                 class="flex items-center gap-2 text-foreground p-2 rounded border border-stroke bg-stroke "
                                             >
-                                                <GithubIcon className="w-6 fill-foreground" /> 
-                                                No public repositories available 
-                                            </div> 
+                                                <GithubIcon className="w-6 fill-foreground" />
+                                                No public repositories available
+                                            </div>
                                         )
                                     }
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                     </div>
                 </div>
-                
+
             </Tab>
         </div>
     </div>
