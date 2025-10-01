@@ -167,6 +167,8 @@ export const projects: Project[] = [
       Technologies.docker,
     ]
   },
+  /*
+  // Project under construction
   {
     number: 4,
     icon: MusicIcon,
@@ -196,5 +198,5 @@ export const projects: Project[] = [
       Technologies.mongodb,
       Technologies.docker,
     ]
-  },
+  },*/
 ];

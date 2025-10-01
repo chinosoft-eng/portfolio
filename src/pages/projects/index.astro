@@ -12,7 +12,7 @@ import Layout from "../../layouts/Layout.astro";
         <FilterSidePanel />
         <Tab sectionName="My projects">
             <div class="w-full h-full flex-1 flex p-4 md:p-8">
-                <div class="flex h-full flex-wrap gap-4 justify-center">
+                <div class="flex h-full flex-wrap gap-4">
                     {
                         projects.map(project => (
                             <ProjectCard {...project} />
