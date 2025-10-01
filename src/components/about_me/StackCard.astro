@@ -37,7 +37,7 @@ const TECHNOLOGIES_ICONS_FILLS_MAPS: Record<Technologies,string> = {
     <div class="flex gap-2 items-center">
         <slot name="stack-header" />
     </div>
-    <div class="bg-slate-950 p-2 rounded-lg flex gap-4">
+    <div class="bg-slate-950 p-2 rounded-lg flex flex-wrap justify-center md:justify-start gap-4 ">
         {
           technologies.map(technology => {
               const Icon = TECHNOLOGIES_ICON_MAPS[technology];
